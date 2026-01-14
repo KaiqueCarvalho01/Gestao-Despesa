@@ -27,7 +27,7 @@ public class Despesa {
     @Column(nullable = false)
     private LocalDate data;
     @Column(nullable = false)
-    private double valor;
+    private Double valor;
 
     @Column(length = 100, nullable = false)
     private String categoria;
