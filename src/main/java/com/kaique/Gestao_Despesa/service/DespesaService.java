@@ -51,4 +51,11 @@ public class DespesaService {
 
         return despesaRepository.save(despesaExistente);
     }
+
+    public void deletarPorId(UUID id){
+        Despesa despesa = buscarPorId(id);
+        despesaRepository.delete(despesa);
+    }
+
+
 }

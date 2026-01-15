@@ -4,6 +4,7 @@ import com.kaique.Gestao_Despesa.entity.Despesa;
 import com.kaique.Gestao_Despesa.repository.DespesaRepository;
 import com.kaique.Gestao_Despesa.service.DespesaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,5 +38,11 @@ public class DespesaController {
     @PatchMapping("/{id}")
     public Despesa atualizar(@PathVariable UUID id, @RequestBody Despesa despesa) {
         return despesaService.atualizar(id, despesa);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void excluir(@PathVariable UUID id){
+        despesaService.deletarPorId(id);
     }
 }
